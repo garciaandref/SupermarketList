@@ -1,4 +1,3 @@
-// src/app/register/page.tsx
 "use client";
 
 import React, { useState } from "react";
@@ -7,7 +6,8 @@ import { Item } from "@/types/item";
 import { useRouter } from "next/navigation";
 import styles from "./register.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTrash, faPlus } from "@fortawesome/free-solid-svg-icons";
+import { faPlus } from "@fortawesome/free-solid-svg-icons";
+import DeleteItemButton from "@/components/DeleteItemButton";
 
 export default function Register() {
   const [itemName, setItemName] = useState("");
@@ -47,14 +47,14 @@ export default function Register() {
           type="text"
           value={itemName}
           onChange={(e) => setItemName(e.target.value)}
-          placeholder="Item name"
+          placeholder="Produto"
         />
         <input
           type="number"
           value={itemQuantity}
           onChange={(e) => setItemQuantity(Number(e.target.value))}
           min="1"
-          placeholder="Quantity"
+          placeholder="Quantidade"
         />
         <button onClick={handleAddItem}>
           <FontAwesomeIcon icon={faPlus} />
@@ -69,10 +69,7 @@ export default function Register() {
             <span>
               {item.name} ({item.quantity})
             </span>
-            <button onClick={() => handleItemDelete(item.id)}>
-              <FontAwesomeIcon icon={faTrash} />
-              Excluir
-            </button>
+            <DeleteItemButton onClick={() => handleItemDelete(item.id)} />
           </li>
         ))}
       </ul>

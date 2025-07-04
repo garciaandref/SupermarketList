@@ -1,9 +1,9 @@
-/* src/app/register/register.module.css */
 .form {
   display: flex;
   flex-direction: column;
   gap: 10px;
   margin-bottom: 20px;
+  width: 100%;
 }
 
 .form input[type="text"],
@@ -11,10 +11,12 @@
   padding: 8px;
   border: 1px solid #ccc;
   border-radius: 4px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .form button {
-  background-color: #28a745; /* Verde */
+  background-color: #28a745;
   color: white;
   border: none;
   padding: 8px 16px;
@@ -32,6 +34,8 @@
 .previewList {
   list-style: none;
   padding: 0;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .previewItem {
@@ -40,11 +44,12 @@
   justify-content: space-between;
   padding: 10px;
   border-bottom: 1px solid #eee;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .previewItem button {
-  background-color: #dc3545; /* Vermelho */
-  color: white;
+  background-color: #dc3545;
   border: none;
   padding: 5px 10px;
   border-radius: 4px;
@@ -59,7 +64,7 @@
 }
 
 .doneButton {
-  background-color: #007bff; /* Azul */
+  background-color: #007bff;
   color: white;
   border: none;
   padding: 10px 20px;
@@ -72,6 +77,11 @@
 }
 
 @media (max-width: 768px) {
+  .container {
+    width: 80%;
+    margin: 0 auto;
+  }
+
   .form {
     flex-direction: column;
   }

@@ -1,4 +1,3 @@
-// src/app/list/page.tsx
 "use client";
 
 import React, { useState, useEffect } from "react";
@@ -7,6 +6,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import styles from "./list.module.css";
 import { useRouter } from "next/navigation";
+import DeleteItemButton from "@/components/DeleteItemButton";
 
 export default function List() {
   const [items, setItems] = useState<Item[]>([]);
@@ -26,6 +26,12 @@ export default function List() {
     localStorage.setItem("shoppingList", JSON.stringify(updatedItems));
   };
 
+  const handleDeleteItem = (id: string) => {
+    const updatedItems = items.filter((item) => item.id !== id);
+    setItems(updatedItems);
+    localStorage.setItem("shoppingList", JSON.stringify(updatedItems));
+  };
+
   const handleGoBack = () => {
     router.push("/register");
   };
@@ -35,12 +41,12 @@ export default function List() {
 
   return (
     <div className="container">
-      <h1>Shopping List</h1>
+      <h1>Lista de Compras</h1>
       <button className={styles.backButton} onClick={handleGoBack}>
         <FontAwesomeIcon icon={faArrowLeft} />
         Adicionar Mais Itens
       </button>
-      <h2>Active Items</h2>
+      <h2>Produtos</h2>
       <ul>
         {activeItems.map((item) => (
           <li key={item.id} className={styles.listItem}>
@@ -54,11 +60,12 @@ export default function List() {
                 {item.name} ({item.quantity})
               </span>
             </label>
+            <DeleteItemButton onClick={() => handleDeleteItem(item.id)} />
           </li>
         ))}
       </ul>
 
-      <h2>Inactive Items</h2>
+      <h2>Produtos no Carrinho</h2>
       <ul>
         {inactiveItems.map((item) => (
           <li key={item.id} className={`${styles.listItem} ${styles.inactive}`}>
@@ -72,6 +79,7 @@ export default function List() {
                 {item.name} ({item.quantity})
               </span>
             </label>
+            <DeleteItemButton onClick={() => handleDeleteItem(item.id)} />
           </li>
         ))}
       </ul>
