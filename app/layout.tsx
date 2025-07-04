@@ -8,8 +8,9 @@ const roboto = Roboto({
 });
 
 export const metadata = {
-  title: "Shopping List App",
-  description: "A simple shopping list app built with Next.js",
+  title: "Lista de Compras",
+  description:
+    "Uma simples aplicação de lista de compras construída com Next.js",
   viewport: "width=device-width, initial-scale=1",
 };
 
@@ -19,7 +20,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={roboto.className}>
+    <html lang="pt-BR" className={roboto.className}>
       <body>{children}</body>
     </html>
   );

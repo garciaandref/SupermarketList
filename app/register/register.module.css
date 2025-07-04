@@ -70,3 +70,19 @@
 .doneButton:hover {
   background-color: #0056b3;
 }
+
+@media (max-width: 768px) {
+  .form {
+    flex-direction: column;
+  }
+
+  .form input[type="text"],
+  .form input[type="number"] {
+    width: 100%;
+  }
+
+  .form button,
+  .doneButton {
+    width: 90%;
+  }
+}

@@ -37,3 +37,9 @@
 .backButton:hover {
   background-color: #0056b3;
 }
+
+@media (max-width: 768px) {
+  .backButton {
+    width: 90%;
+  }
+}
