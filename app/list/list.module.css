@@ -1,0 +1,39 @@
+/* src/app/list/list.module.css */
+.listItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  border-bottom: 1px solid #eee;
+}
+
+.listItem label {
+  display: flex;
+  align-items: center;
+}
+
+.listItem input[type="checkbox"] {
+  margin-right: 5px;
+}
+
+.inactive {
+  opacity: 0.5;
+  text-decoration: line-through;
+}
+
+.backButton {
+  background-color: #007bff; /* Azul */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-bottom: 20px;
+}
+
+.backButton:hover {
+  background-color: #0056b3;
+}
